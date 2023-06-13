@@ -1,77 +1,84 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  nav ul li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  main {
-    margin: 20px;
-  }
-  
-  h2 {
-    margin-top: 0;
-  }
-  
-  #threads {
-    margin-bottom: 20px;
-  }
-  
-  .thread {
-    background-color: #f4f4f4;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .thread h3 {
-    margin: 0;
-  }
-  
-  .thread p {
-    margin-top: 5px;
-  }
-  
-  #threadForm input,
-  #threadForm textarea {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  #threadForm button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #threadForm button:hover {
-    background-color: #555;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+main {
+  margin: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+#threads {
+  margin-bottom: 20px;
+}
+
+.thread {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.thread h3 {
+  margin: 0;
+}
+
+.thread p {
+  margin-top: 5px;
+}
+
+#threadForm input,
+#threadForm textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#threadForm button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#threadForm button:hover {
+  background-color: #555;
+}
