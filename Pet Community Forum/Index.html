@@ -9,27 +9,31 @@
     <h1>Pet Community Forum</h1>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Your Threads</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="threads.html">Your Threads</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h2>Latest Threads</h2>
-
+    <h2>Welcome to the Pet Community Forum!</h2>
     <div id="threads">
-      <!-- Threads will be dynamically added here -->
+      <div class="thread">
+        <h3>Thread Title</h3>
+        <p>Thread content goes here...</p>
+      </div>
+      <!-- Additional threads go here -->
     </div>
 
-    <h2>Create a Thread</h2>
     <form id="threadForm">
-      <input type="text" id="threadTitle" placeholder="Thread Title">
-      <textarea id="threadContent" placeholder="Thread Content"></textarea>
-      <button id="createThreadButton">Create Thread</button>
+      <input type="text" placeholder="Thread Title">
+      <textarea placeholder="Thread Content"></textarea>
+      <button>Create Thread</button>
     </form>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

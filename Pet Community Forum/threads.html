@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pet Community Forum - Your Threads</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Pet Community Forum</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="threads.html">Your Threads</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Your Thread History</h2>
+    <div id="threads">
+      <!-- Thread history content will be dynamically populated -->
+    </div>
+
+    <div id="thread-form-container">
+      <h3>Create Thread</h3>
+      <form id="threadForm">
+        <div class="form-group">
+          <label for="threadTitle">Thread Title</label>
+          <input type="text" id="threadTitle" placeholder="Thread Title">
+        </div>
+        <div class="form-group">
+          <label for="threadContent">Thread Content</label>
+          <textarea id="threadContent" placeholder="Thread Content"></textarea>
+        </div>
+        <button type="submit">Create Thread</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var threadHistory = [];
+
+      // Retrieve thread history from localStorage if available
+      if (localStorage.getItem('threadHistory')) {
+        threadHistory = JSON.parse(localStorage.getItem('threadHistory'));
+      }
+
+      var threadsContainer = document.getElementById('threads');
+
+      // Function to render thread history
+      function renderThreadHistory() {
+        threadsContainer.innerHTML = '';
+
+        threadHistory.forEach(function(thread, index) {
+          var threadElement = document.createElement('div');
+          threadElement.classList.add('thread');
+
+          var titleElement = document.createElement('h3');
+          titleElement.textContent = thread.title;
+
+          var contentElement = document.createElement('p');
+          contentElement.textContent = thread.content;
+
+          var deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Delete';
+          deleteButton.classList.add('delete-button');
+
+          // Add event listener to delete button
+          deleteButton.addEventListener('click', function() {
+            threadHistory.splice(index, 1);
+            localStorage.setItem('threadHistory', JSON.stringify(threadHistory));
+            renderThreadHistory();
+          });
+
+          threadElement.appendChild(titleElement);
+          threadElement.appendChild(contentElement);
+          threadElement.appendChild(deleteButton);
+
+          threadsContainer.appendChild(threadElement);
+        });
+      }
+
+      // Render thread history on page load
+      renderThreadHistory();
+
+      var threadForm = document.getElementById('threadForm');
+
+      // Add event listener to create thread form
+      threadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var threadTitle = document.getElementById('threadTitle').value;
+        var threadContent = document.getElementById('threadContent').value;
+
+        var thread = {
+          title: threadTitle,
+          content: threadContent
+        };
+
+        threadHistory.push(thread);
+        localStorage.setItem('threadHistory', JSON.stringify(threadHistory));
+        renderThreadHistory();
+
+        // Reset form fields
+        threadForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>

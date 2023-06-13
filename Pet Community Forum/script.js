@@ -1,31 +1,25 @@
-// Example data for threads (replace with your own logic)
-const threadsData = [
-    { title: 'Thread 1', content: 'This is the first thread.' },
-    { title: 'Thread 2', content: 'This is the second thread.' },
-    { title: 'Thread 3', content: 'This is the third thread.' },
+window.addEventListener('DOMContentLoaded', function() {
+  var threadHistory = [
+    { title: 'Thread 1', content: 'Thread 1 content' },
+    { title: 'Thread 2', content: 'Thread 2 content' },
+    { title: 'Thread 3', content: 'Thread 3 content' }
   ];
-  
-  // Function to create a new thread element
-  function createThreadElement(thread) {
-    const threadElement = document.createElement('div');
+
+  var threadsContainer = document.getElementById('threads');
+
+  threadHistory.forEach(function(thread) {
+    var threadElement = document.createElement('div');
     threadElement.classList.add('thread');
-    threadElement.innerHTML = `
-      <h3>${thread.title}</h3>
-      <p>${thread.content}</p>
-    `;
-    return threadElement;
-  }
-  
-  // Function to render threads
-  function renderThreads() {
-    const threadsContainer = document.getElementById('threads');
-    threadsContainer.innerHTML = '';
-  
-    threadsData.forEach(thread => {
-      const threadElement = createThreadElement(thread);
-      threadsContainer.appendChild(threadElement);
-    });
-  }
-  
-  //
-  
+
+    var titleElement = document.createElement('h3');
+    titleElement.textContent = thread.title;
+
+    var contentElement = document.createElement('p');
+    contentElement.textContent = thread.content;
+
+    threadElement.appendChild(titleElement);
+    threadElement.appendChild(contentElement);
+
+    threadsContainer.appendChild(threadElement);
+  });
+});
