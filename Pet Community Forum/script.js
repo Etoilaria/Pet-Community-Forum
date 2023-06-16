@@ -1,25 +1,36 @@
-window.addEventListener('DOMContentLoaded', function() {
-  var threadHistory = [
-    { title: 'Thread 1', content: 'Thread 1 content' },
-    { title: 'Thread 2', content: 'Thread 2 content' },
-    { title: 'Thread 3', content: 'Thread 3 content' }
-  ];
+// script.js
+document.getElementById("createThreadForm").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  var threadsContainer = document.getElementById('threads');
+  // Retrieve values from form inputs
+  var threadTitle = document.getElementById("threadTitle").value;
+  var threadDescription = document.getElementById("threadDescription").value;
 
-  threadHistory.forEach(function(thread) {
-    var threadElement = document.createElement('div');
-    threadElement.classList.add('thread');
+  // Create new list item for the thread
+  var threadList = document.querySelector(".thread-list");
+  var newThreadItem = document.createElement("li");
+  var threadTitleHeading = document.createElement("h3");
+  var threadDescriptionPara = document.createElement("p");
+  threadTitleHeading.textContent = threadTitle;
+  threadDescriptionPara.textContent = threadDescription;
+  newThreadItem.appendChild(threadTitleHeading);
+  newThreadItem.appendChild(threadDescriptionPara);
+  threadList.appendChild(newThreadItem);
 
-    var titleElement = document.createElement('h3');
-    titleElement.textContent = thread.title;
+  // Clear form inputs
+  document.getElementById("threadTitle").value = "";
+  document.getElementById("threadDescription").value = "";
 
-    var contentElement = document.createElement('p');
-    contentElement.textContent = thread.content;
-
-    threadElement.appendChild(titleElement);
-    threadElement.appendChild(contentElement);
-
-    threadsContainer.appendChild(threadElement);
-  });
+  // Display success message
+  showMessage("Thread created successfully!");
 });
+
+function showMessage(message) {
+  var messageElement = document.createElement("div");
+  messageElement.className = "message";
+  messageElement.textContent = message;
+  document.body.appendChild(messageElement);
+  setTimeout(function () {
+    messageElement.remove();
+  }, 2000);
+}
